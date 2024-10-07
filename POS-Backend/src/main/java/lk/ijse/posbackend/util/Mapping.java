@@ -10,8 +10,11 @@ import lk.ijse.posbackend.entity.ItemEntity;
 import lk.ijse.posbackend.entity.OrderDetailsEntity;
 import lk.ijse.posbackend.entity.OrderEntity;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class Mapping {
@@ -27,6 +30,10 @@ public class Mapping {
         return modelMapper.map(customerDTO, CustomerEntity.class);
     }
 
+    public List<CustomerDTO> convertCustomerEntityListToCustomerDTOList(List<CustomerEntity> customerEntityList) {
+        return modelMapper.map(customerEntityList, new TypeToken<List<CustomerDTO>>() {}.getType());
+    }
+
     public ItemDTO convertItemEntityToItemDTO(ItemEntity itemEntity) {
         return modelMapper.map(itemEntity, ItemDTO.class);
     }
@@ -35,12 +42,21 @@ public class Mapping {
         return modelMapper.map(itemDTO, ItemEntity.class);
     }
 
+    public List<ItemDTO> convertItemEntityListToItemDTOList(List<ItemEntity> itemEntityList) {
+        return modelMapper.map(itemEntityList, new TypeToken<List<ItemDTO>>() {}.getType());
+    }
+
+
     public OrderDTO convertOrderEntityToOrderDTO(OrderEntity orderEntity) {
         return modelMapper.map(orderEntity, OrderDTO.class);
     }
 
     public OrderEntity convertOrderDTOToOrderEntity(OrderDTO orderDTO) {
         return modelMapper.map(orderDTO, OrderEntity.class);
+    }
+
+    public List<OrderDTO> convertOrderEntityListToOrderDTOList(List<OrderEntity> orderEntityList) {
+        return modelMapper.map(orderEntityList, new TypeToken<List<OrderDTO>>() {}.getType());
     }
 
     public OrderDetailsDTO convertOrderDetailsEntityToOrderDetailsDTO(OrderDetailsEntity orderDetailsEntity) {
