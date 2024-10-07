@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -41,6 +42,19 @@ public class CustomerServiceImpl implements CustomerService {
             return mapping.convertCustomerEntityToCustomerDTO(customerDAO.getReferenceById(id));
         }else {
             throw new CustomerNotFoundException("Customer not found");
+        }
+    }
+
+    @Override
+    public void updateCustomer(String id, CustomerDTO customerDTO) {
+        Optional<CustomerEntity> tmp = customerDAO.findById(id);
+        if (!tmp.isPresent()) {
+            throw new CustomerNotFoundException("Customer not found");
+        }else {
+            tmp.get().setName(customerDTO.getName());
+            tmp.get().setAddress(customerDTO.getAddress());
+            tmp.get().setEmail(customerDTO.getEmail());
+            tmp.get().setContact(customerDTO.getContact());
         }
     }
 }
