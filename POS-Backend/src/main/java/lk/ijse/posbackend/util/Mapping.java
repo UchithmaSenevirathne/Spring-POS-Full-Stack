@@ -55,15 +55,15 @@ public class Mapping {
         return modelMapper.map(orderDTO, OrderEntity.class);
     }
 
-    public List<OrderDTO> convertOrderEntityListToOrderDTOList(List<OrderEntity> orderEntityList) {
-        return modelMapper.map(orderEntityList, new TypeToken<List<OrderDTO>>() {}.getType());
-    }
-
     public OrderDetailsDTO convertOrderDetailsEntityToOrderDetailsDTO(OrderDetailsEntity orderDetailsEntity) {
         return modelMapper.map(orderDetailsEntity, OrderDetailsDTO.class);
     }
 
     public OrderDetailsEntity convertOrderDetailsDTOToOrderDetailsEntity(OrderDetailsDTO orderDetailsDTO) {
         return modelMapper.map(orderDetailsDTO, OrderDetailsEntity.class);
+    }
+
+    public List<OrderDetailsDTO> convertOrderDetailEntityListToOrderDetailDTOList(List<OrderDetailsEntity> orderDetailsEntityList) {
+        return modelMapper.map(orderDetailsEntityList, new TypeToken<List<OrderDetailsDTO>>() {}.getType());
     }
 }

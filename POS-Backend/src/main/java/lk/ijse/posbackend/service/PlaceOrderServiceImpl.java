@@ -54,4 +54,9 @@ public class PlaceOrderServiceImpl implements PlaceOrderService {
             throw new DataPersistFailedException("order not saved");
         }
     }
+
+    @Override
+    public List<OrderDetailsDTO> getOrderDetails() {
+        return mapping.convertOrderDetailEntityListToOrderDetailDTOList(orderDetailsDAO.findAll());
+    }
 }
