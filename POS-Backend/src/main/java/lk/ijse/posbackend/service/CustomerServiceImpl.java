@@ -57,4 +57,14 @@ public class CustomerServiceImpl implements CustomerService {
             tmp.get().setContact(customerDTO.getContact());
         }
     }
+
+    @Override
+    public void deleteCustomer(String id) {
+        Optional<CustomerEntity> tmp = customerDAO.findById(id);
+        if (!tmp.isPresent()) {
+            throw new CustomerNotFoundException("Customer not found");
+        }else {
+            customerDAO.deleteById(id);
+        }
+    }
 }

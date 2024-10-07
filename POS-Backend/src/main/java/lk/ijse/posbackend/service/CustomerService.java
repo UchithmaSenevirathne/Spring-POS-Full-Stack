@@ -13,4 +13,6 @@ public interface CustomerService {
     CustomerResponse getSelectedCustomer(String id);
 
     void updateCustomer(String id, CustomerDTO customerDTO);
+
+    void deleteCustomer(String id);
 }
