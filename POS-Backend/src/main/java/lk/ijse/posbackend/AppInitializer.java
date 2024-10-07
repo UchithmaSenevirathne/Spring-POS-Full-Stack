@@ -1,27 +1,34 @@
 package lk.ijse.posbackend;
 
 import java.io.*;
+
+import jakarta.servlet.MultipartConfigElement;
+import jakarta.servlet.ServletRegistration;
 import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+import lk.ijse.posbackend.config.WebAppConfig;
+import lk.ijse.posbackend.config.WebAppRootConfig;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
-public class AppInitializer extends HttpServlet {
-    private String message;
+public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
-    public void init() {
-        message = "Hello World!";
+    @Override
+    protected Class<?>[] getRootConfigClasses() {
+        return new Class[]{WebAppRootConfig.class};
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+    @Override
+    protected Class<?>[] getServletConfigClasses() {
+        return new Class[]{WebAppConfig.class};
     }
 
-    public void destroy() {
+    @Override
+    protected String[] getServletMappings() {
+        return new String[]{"/"};
+    }
+
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        String tempDir = System.getProperty("java.io.tmpdir");
+        registration.setMultipartConfig(new MultipartConfigElement(tempDir));
     }
 }
