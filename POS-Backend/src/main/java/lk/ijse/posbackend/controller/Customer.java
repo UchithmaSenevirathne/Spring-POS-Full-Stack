@@ -23,12 +23,12 @@ public class Customer {
     private final CustomerService customerService;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> addCustomer(@RequestBody CustomerDTO customer) {
-        if (customer == null){
+    public ResponseEntity<Void> addCustomer(@RequestBody CustomerDTO customerDTO) {
+        if (customerDTO == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }else {
             try {
-                customerService.saveCustomer(customer);
+                customerService.saveCustomer(customerDTO);
                 return new ResponseEntity<>(HttpStatus.CREATED);
             }catch (DataPersistFailedException e){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
