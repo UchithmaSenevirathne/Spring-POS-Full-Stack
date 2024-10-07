@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class OrderEntity {
+public class OrderEntity implements SuperEntity {
     private String oId;
     private String date;
     private double total;
