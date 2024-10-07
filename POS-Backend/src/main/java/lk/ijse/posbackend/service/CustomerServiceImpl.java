@@ -4,6 +4,7 @@ import lk.ijse.posbackend.customobj.CustomerResponse;
 import lk.ijse.posbackend.dao.CustomerDAO;
 import lk.ijse.posbackend.dto.CustomerDTO;
 import lk.ijse.posbackend.entity.CustomerEntity;
+import lk.ijse.posbackend.exception.CustomerNotFoundException;
 import lk.ijse.posbackend.exception.DataPersistFailedException;
 import lk.ijse.posbackend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<CustomerDTO> getAllCustomers() {
-        return mapping.
+        return mapping.convertCustomerEntityListToCustomerDTOList(customerDAO.findAll());
     }
 
     @Override
     public CustomerResponse getSelectedCustomer(String id) {
-        return null;
+        if (customerDAO.existsById(id)) {
+            return mapping.convertCustomerEntityToCustomerDTO(customerDAO.getReferenceById(id));
+        }else {
+            throw new CustomerNotFoundException("Customer not found");
+        }
     }
 }
