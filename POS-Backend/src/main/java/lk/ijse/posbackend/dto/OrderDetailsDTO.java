@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDetailsDTO {
+public class OrderDetailsDTO implements SuperDTO {
     private String itemId;
     private String itemName;
     private String itemDescription;
