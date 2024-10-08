@@ -36,7 +36,7 @@ function saveItem() {
   };
 
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/item",
+    url: "http://localhost:8080/POS_backend_war_exploded/api/v1/item",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify(item),
@@ -82,7 +82,7 @@ function saveItem() {
 
 function getAllItem() {
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/item",
+    url: "http://localhost:8080/POS_backend_war_exploded/api/v1/item",
     method: "GET",
     success: function (data) {
       itemDetail = data;
@@ -158,7 +158,7 @@ function updateItem() {
   };
 
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/item",
+    url: `http://localhost:8080/POS_backend_war_exploded/api/v1/item/${item.id}`,
     method: "PUT",
     contentType: "application/json",
     data: JSON.stringify(item),
@@ -213,7 +213,7 @@ function updateItem() {
 
 function deleteItem(id) {
   $.ajax({
-    url: `http://localhost:8080/POS_Backend/item?id=${id}`,
+    url: `http://localhost:8080/POS_backend_war_exploded/api/v1/item/${id}`,
     method: "DELETE",
     success: function () {
       alert("Item deleted successfully");
