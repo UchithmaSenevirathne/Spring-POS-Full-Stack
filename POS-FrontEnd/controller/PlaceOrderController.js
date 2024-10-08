@@ -16,7 +16,7 @@ setOrderId();
 
 function getCustomers() {
     $.ajax({
-      url: "http://localhost:8080/POS_Backend/customer",
+      url: "http://localhost:8080/POS_backend_war_exploded/api/v1/customer",
       method: "GET",
       success: function (cusdata) {
         customers = cusdata;
@@ -31,7 +31,7 @@ function getCustomers() {
 
 function getItems() {
     $.ajax({
-      url: "http://localhost:8080/POS_Backend/item",
+      url: "http://localhost:8080/POS_backend_war_exploded/api/v1/item",
       method: "GET",
       success: function (itemdata) {
         items = itemdata;
@@ -202,7 +202,7 @@ function purchaseOrder() {
     console.log("Order Data: ", orderData); // Log the data being sent
 
     $.ajax({
-        url: 'http://localhost:8080/POS_Backend/placeOrder',
+        url: 'http://localhost:8080/POS_backend_war_exploded/api/v1/placeOrder',
         type: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(orderData),
@@ -274,7 +274,7 @@ function clearItemDetails() {
 
 function getOrderDetails(){
     $.ajax({
-        url: 'http://localhost:8080/POS_Backend/placeOrder',
+        url: 'http://localhost:8080/POS_backend_war_exploded/api/v1/placeOrder',
         type: 'GET',
         contentType: 'application/json',
         success: function(response) {
