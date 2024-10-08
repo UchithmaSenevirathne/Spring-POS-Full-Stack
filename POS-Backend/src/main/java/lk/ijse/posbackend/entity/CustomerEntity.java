@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@Entity
+@Table(name = "customer")
 public class CustomerEntity implements SuperEntity {
+    @Id
     String id;
     String name;
     String address;

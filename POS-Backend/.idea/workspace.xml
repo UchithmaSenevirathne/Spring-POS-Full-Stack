@@ -74,6 +74,11 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
@@ -191,7 +196,8 @@
       <updated>1728291967791</updated>
       <workItem from="1728291968841" duration="7315000" />
       <workItem from="1728301279226" duration="36000" />
-      <workItem from="1728301333694" duration="4232000" />
+      <workItem from="1728301333694" duration="10078000" />
+      <workItem from="1728353599099" duration="4793000" />
     </task>
     <servers />
   </component>

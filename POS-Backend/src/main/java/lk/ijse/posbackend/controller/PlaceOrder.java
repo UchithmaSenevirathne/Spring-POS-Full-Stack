@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("placeOrder")
+@RequestMapping("api/v1/placeOrder")
 @RequiredArgsConstructor
 public class PlaceOrder {
 
@@ -32,6 +32,7 @@ public class PlaceOrder {
             }catch (DataPersistFailedException e){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }catch (Exception e){
+                e.printStackTrace();
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
             }
         }

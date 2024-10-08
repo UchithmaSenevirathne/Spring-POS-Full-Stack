@@ -1,5 +1,6 @@
 package lk.ijse.posbackend.service;
 
+import jakarta.transaction.Transactional;
 import lk.ijse.posbackend.customobj.CustomerResponse;
 import lk.ijse.posbackend.dao.CustomerDAO;
 import lk.ijse.posbackend.dto.CustomerDTO;
@@ -9,7 +10,6 @@ import lk.ijse.posbackend.exception.DataPersistFailedException;
 import lk.ijse.posbackend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;

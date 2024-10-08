@@ -1,5 +1,6 @@
 package lk.ijse.posbackend.service;
 
+import jakarta.transaction.Transactional;
 import lk.ijse.posbackend.customobj.ItemResponse;
 import lk.ijse.posbackend.dao.ItemDAO;
 import lk.ijse.posbackend.dto.ItemDTO;
@@ -9,7 +10,6 @@ import lk.ijse.posbackend.exception.ItemNotFoundException;
 import lk.ijse.posbackend.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -17,6 +17,7 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ItemServiceImpl implements ItemService {
+
     @Autowired
     private ItemDAO itemDAO;
 
