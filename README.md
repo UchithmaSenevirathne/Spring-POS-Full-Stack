@@ -40,8 +40,8 @@ using Spring, and the frontend is developed with HTML, CSS, and JavaScript.</p>
 
 <h2>Technologies Used</h2>
 <ul>
-    <li>Backend: Spring</li>
-<li>Frontend: HTML, CSS, JavaScript</li>
+    <li>Backend: Spring, Spring Web MVC, Spring Data JPA, Hibernate</li>
+<li>Frontend: HTML, CSS, JavaScript, AJAX</li>
     <li>Database: MySQL</li>
 </ul>
 
@@ -50,6 +50,7 @@ using Spring, and the frontend is developed with HTML, CSS, and JavaScript.</p>
 <ul>
     <li>Java 17 or later</li>
     <li>Maven</li>
+<li>SLF4J with Logback </li>
 <li>Node.js (for frontend dependencies, if applicable)</li>
 </ul>
 
