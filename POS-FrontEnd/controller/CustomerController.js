@@ -37,7 +37,7 @@ function saveCustomer() {
   };
 
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/customer",
+    url: "http://localhost:8080/POS_backend_war_exploded/api/v1/customer",
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify(customer),
@@ -86,7 +86,7 @@ function saveCustomer() {
 
 function getAllCustomer() {
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/customer",
+    url: "http://localhost:8080/POS_backend_war_exploded/api/v1/customer",
     method: "GET",
     success: function (data) {
       customerDetail = data;
@@ -166,7 +166,7 @@ function updateCustomer() {
   };
 
   $.ajax({
-    url: "http://localhost:8080/POS_Backend/customer",
+    url: `http://localhost:8080/POS_backend_war_exploded/api/v1/customer/${customer.id}`,
     method: "PUT",
     contentType: "application/json",
     data: JSON.stringify(customer),
@@ -186,46 +186,13 @@ function updateCustomer() {
       alert("Failed to update customer");
     },
   });
-  // let cusID = $("#cusID").val();
-  // let cusName = $("#cusName").val();
-  // let cusAddress = $("#cusAddress").val();
-  // let cusEmail = $("#cusEmail").val();
-  // let cusContact = $("#cusContact").val();
-
-  // let consent = confirm("DO U WANT UPDATE THIS CUSTOMER");
-
-  // if (consent) {
-  //   for (let i = 0; i < customerDetail.length; i++) {
-  //     if (customerDetail[i].customerID == selectedCustomerId) {
-  //       customerDetail[i].customerID = cusID;
-  //       customerDetail[i].customerName = cusName;
-  //       customerDetail[i].customerAddress = cusAddress;
-  //       customerDetail[i].customerEmail = cusEmail;
-  //       customerDetail[i].customerContact = cusContact;
-
-  //       getAllCustomer();
-  //       clearCustomerFeilds();
-  //       alert("UPDATED SUCCSESS...!");
-
-  //       break;
-  //     }
-  //   }
-  //   isUpdateMode = false;
-  //   selectedCustomerId = null;
-  //   $("#onActionSave")
-  //     .text("REGISTER CUSTOMER")
-  //     .removeClass("update")
-  //     .addClass("save");
-  // } else {
-  //   clearCustomerFeilds();
-  // }
   setCusID();
   // cusNames();
 }
 
 function deleteCustomer(id) {
   $.ajax({
-    url: `http://localhost:8080/POS_Backend/customer?id=${id}`,
+    url: `http://localhost:8080/POS_backend_war_exploded/api/v1/customer/${id}`,
     method: 'DELETE',
     success: function() {
         alert('Customer deleted successfully');
@@ -237,22 +204,7 @@ function deleteCustomer(id) {
         alert('Failed to delete customer');
     }
 });
-  // let consent = confirm("DO U WANT DELETE THIS CUSTOMER");
-
-  // if (consent) {
-  //   for (let i = 0; i < customerDetail.length; i++) {
-  //     if (customerDetail[i].customerID == customerID) {
-  //       customerDetail.splice(i, 1);
-  //       getAllCustomer();
-  //       clearCustomerFeilds();
-
-  //       alert("DELETED SUCCSESS...!");
-  //       break;
-  //     }
-  //   }
-  // } else {
-  //   clearCustomerFeilds();
-  // }
+ 
 
   setCusID();
   // cusNames()
